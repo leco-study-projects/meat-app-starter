@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {RadionOptions} from '../shared/radio/radion.options';
 
 @Component({
   selector: 'mt-order',
@@ -6,7 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderComponent implements OnInit {
 
-  constructor() { }
+  paymentOptions: RadionOptions[] = [
+    {label: 'Dinheiro', value: 'MON'},
+    {label: 'Cartão de Débito', value: 'DEB'},
+    {label: 'Cartão Refeição', value: 'REF'},
+  ];
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
