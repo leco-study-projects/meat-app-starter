@@ -13,7 +13,7 @@ export class InputComponent implements OnInit, AfterContentInit {
 
   input: any;
 
-  @ContentChild(NgModel) model: NgModel
+  @ContentChild(NgModel) model: NgModel;
 
   constructor() {
   }
@@ -30,6 +30,10 @@ export class InputComponent implements OnInit, AfterContentInit {
 
   hasSuccess(): boolean {
     return this.input.valid && (this.input.dirty || this.input.touched);
+  }
+
+  hasError(): boolean {
+    return this.input.invalid && (this.input.dirty || this.input.touched);
   }
 
 }

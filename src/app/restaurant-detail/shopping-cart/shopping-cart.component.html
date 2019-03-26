@@ -11,7 +11,7 @@
       <div *ngIf="!items().length">
         <p class="mt-warning-message">Seu carrinho está vazio!</p>
       </div>
-      <table class="table" *ngIf="items().length">
+      <table class="table" *ngIf="items().length" >
         <tbody>
         <tr *ngFor="let item of items()">
           <th style="width:60%">({{item.quantity}}x){{ item.menuItem.name}}</th>

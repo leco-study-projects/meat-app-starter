@@ -1,8 +1,8 @@
-<div class="form-group" [class.has-success]="hasSuccess()" [class.has-error]="!hasSuccess() && errorMessage">
+<div class="form-group" [class.has-success]="hasSuccess()" [class.has-error]="hasError() && errorMessage">
   <label class="control-label sr-only"><i class="fa fa-check"></i> {{label}}</label>
 
   <ng-content></ng-content>
 
   <span class="help-block" *ngIf="hasSuccess()"><i class="fa fa-check"></i>Ok</span>
-  <span class="help-block" *ngIf="!hasSuccess() && errorMessage"><i class="fa fa-remove"></i>{{ errorMessage }}</span>
+  <span class="help-block" *ngIf="hasError() && errorMessage"><i class="fa fa-remove"></i>{{ errorMessage }}</span>
 </div>

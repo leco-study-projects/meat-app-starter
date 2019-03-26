@@ -1,6 +1,8 @@
 import {CartItem} from './cart-item.model';
 import {MenuItem} from '../menu-item/menu-item.model';
+import {Injectable} from '@angular/core';
 
+@Injectable()
 export class ShoppingCartService {
 
   items: CartItem[] = [];
@@ -12,7 +14,7 @@ export class ShoppingCartService {
   addItem(item: MenuItem) {
     let foundItem = this.items.find((mItem) => mItem.menuItem.name === item.name);
     if (foundItem) {
-      foundItem.quantity++;
+      this.increaseQty(foundItem);
     } else {
       this.items.push(new CartItem(item));
     }
@@ -27,4 +29,16 @@ export class ShoppingCartService {
       .map(item => item.value())
       .reduce((prev, value) => prev + value, 0);
   }
+
+  increaseQty(item: CartItem) {
+    item.quantity = item.quantity + 1;
+  }
+
+  decreaseQty(item: CartItem) {
+    item.quantity = item.quantity - 1;
+    if (item.quantity === 0) {
+      this.removeItem(item);
+    }
+  }
+
 }

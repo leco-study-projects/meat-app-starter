@@ -31,4 +31,8 @@ export class OrderItemsComponent implements OnInit {
     this.remove.emit(item);
   }
 
+  hasItems() {
+    return this.items !== null && this.items !== undefined && this.items.length > 0;
+  }
+
 }

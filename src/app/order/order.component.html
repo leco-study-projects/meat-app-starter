@@ -23,7 +23,11 @@
 
         <div class="col-sm-6 col-xs-12">
           <mt-input-container errorMessage="Campo Obrigatório" label="Endereço">
-            <input type="text" class="form-control" required minlength="5" name="address" ngModel placeholder="Endereço"
+            <input type="text" required
+                   class="form-control"
+                   minlength="5"
+                   name="address"
+                   ngModel placeholder="Endereço"
                    autocomplete="off">
           </mt-input-container>
         </div>
@@ -54,9 +58,11 @@
           <p class="lead">Itens do Pedido:</p>
         </div>
 
-        <div class="col-xs-12 table-responsive">
-          <mt-order-items></mt-order-items>
-        </div>
+        <mt-order-items
+          [items]="cartItems()"
+          (increaseQty)="increaseQty($event)"
+          (decreaseQty)="decreaseQty($event)">
+        </mt-order-items>
         <!-- /.col -->
       </div>
       <!-- /.row -->
@@ -68,8 +74,6 @@
 
           <div class="form-group">
             <mt-radio [options]="paymentOptions" name="paymentOption" ngModel></mt-radio>
-
-
           </div>
 
         </div>
